@@ -1,0 +1,22 @@
+inherit_from: config/default.yml
+
+require: rubocop-performance
+
+Style/Documentation:
+  Enabled: false
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Layout/AlignHash:
+  EnforcedColonStyle: key
+  EnforcedLastArgumentHashStyle: ignore_implicit
+
+Layout/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+
+Layout/IndentFirstArrayElement:
+  EnforcedStyle: consistent
+
+Layout/IndentFirstHashElement:
+  EnforcedStyle: consistent
