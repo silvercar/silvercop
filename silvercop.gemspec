@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name = 'silvercop'
-  spec.version = '1.0.0'
+  spec.version = '1.0.1'
   spec.summary = 'Silvercar RuboCop'
   spec.description = 'Code style checking for Silvercar Ruby repositories.'
 
@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors = ['Silvercar']
   spec.email = ['opensource@silvercar.com']
 
-  spec.files = Dir['README.md', 'LICENSE', 'config/*.yml', 'lib/**/*.rb']
+  spec.files = Dir['README.md', 'LICENSE', '.rubocop.yml', 'config/*.yml', 'lib/**/*.rb']
 
   spec.add_dependency 'rubocop', '0.68.1'
   spec.add_dependency 'rubocop-performance', '1.2.0'
