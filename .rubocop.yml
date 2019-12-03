@@ -1,6 +1,9 @@
 inherit_from: config/default.yml
 
-require: rubocop-performance
+require:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-thread_safety
 
 Style/Documentation:
   Enabled: false
@@ -8,15 +11,15 @@ Style/Documentation:
 Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented
 
-Layout/AlignHash:
+Layout/HashAlignment:
   EnforcedColonStyle: key
   EnforcedLastArgumentHashStyle: ignore_implicit
 
-Layout/AlignParameters:
+Layout/ParameterAlignment:
   EnforcedStyle: with_fixed_indentation
 
-Layout/IndentFirstArrayElement:
+Layout/FirstArrayElementIndentation:
   EnforcedStyle: consistent
 
-Layout/IndentFirstHashElement:
+Layout/FirstHashElementIndentation:
   EnforcedStyle: consistent
