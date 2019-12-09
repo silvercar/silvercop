@@ -2,6 +2,11 @@
 
 This gem houses RuboCop configuration files to be included in Silvercar Ruby projects.
 
+## Known Issues
+There's a typo in rubocop 0.77 that gives an invalid warning, which can be ignored.
+
+Warning: Style/TrivialAccessors does not support AllowedMethods parameter.
+
 ## Usage
 
 Add to gemfile:
