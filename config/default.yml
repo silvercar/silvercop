@@ -1,8 +1,5 @@
-# This file was copied directly from https://github.com/rubocop-hq/rubocop/blob/v0.68.1/config/default.yml
-# That means it has more configuration than it needs, but it's easier to copy and paste into new versions
-# since we're just adopting everything in the new version.
-
 # Common configuration.
+
 AllCops:
   RubyInterpreters:
     - ruby
@@ -62,6 +59,7 @@ AllCops:
     - '**/Vagrantfile'
   Exclude:
     - 'node_modules/**/*'
+    - 'tmp/**/*'
     - 'vendor/**/*'
     - '.git/**/*'
   # Default formatter will be used if no `-f/--format` option is given.
@@ -199,9 +197,10 @@ Gemspec/RequiredRubyVersion:
   VersionAdded: '0.52'
   Include:
     - '**/*.gemspec'
-    -
+
 Gemspec/RubyVersionGlobalsUsage:
   Description: Checks usage of RUBY_VERSION in gemspec.
+  StyleGuide: '#no-ruby-version-in-the-gemspec'
   Enabled: true
   VersionAdded: '0.72'
   Include:
@@ -802,6 +801,29 @@ Layout/LeadingEmptyLines:
   VersionAdded: '0.57'
   VersionChanged: '0.77'
 
+Layout/LineLength:
+  Description: 'Limit lines to 80 characters.'
+  StyleGuide: '#80-character-limits'
+  Enabled: true
+  VersionAdded: '0.25'
+  VersionChanged: '0.78'
+  AutoCorrect: false
+  Max: 80
+  # To make it possible to copy or click on URIs in the code, we allow lines
+  # containing a URI to be longer than Max.
+  AllowHeredoc: true
+  AllowURI: true
+  URISchemes:
+    - http
+    - https
+  # The IgnoreCopDirectives option causes the LineLength rule to ignore cop
+  # directives like '# rubocop: enable ...' when calculating a line's length.
+  IgnoreCopDirectives: true
+  # The IgnoredPatterns option is a list of !ruby/regexp and/or string
+  # elements. Strings will be converted to Regexp objects. A line that matches
+  # any regular expression listed in this option will be ignored by LineLength.
+  IgnoredPatterns: []
+
 Layout/MultilineArrayBraceLayout:
   Description: >-
                  Checks that the closing brace in an array literal is
@@ -1045,6 +1067,10 @@ Layout/SpaceAroundOperators:
   # with an operator on the previous or next line, not counting empty lines
   # or comment lines.
   AllowForAlignment: true
+  EnforcedStyleForExponentOperator: no_space
+  SupportedStylesForExponentOperator:
+    - space
+    - no_space
 
 Layout/SpaceBeforeBlockBraces:
   Description: >-
@@ -1474,6 +1500,12 @@ Lint/NextWithoutAccumulator:
   Enabled: true
   VersionAdded: '0.36'
 
+Lint/NonDeterministicRequireOrder:
+  Description: 'Always sort arrays returned by Dir.glob when requiring files.'
+  Enabled: true
+  VersionAdded: '0.78'
+  Safe: false
+
 Lint/NonLocalExitFromIterator:
   Description: 'Do not use return in iterator to cause non-local exit.'
   Enabled: true
@@ -1811,29 +1843,6 @@ Metrics/CyclomaticComplexity:
   Enabled: true
   VersionAdded: '0.25'
   Max: 6
-
-Metrics/LineLength:
-  Description: 'Limit lines to 80 characters.'
-  StyleGuide: '#80-character-limits'
-  Enabled: true
-  VersionAdded: '0.25'
-  VersionChanged: '0.68'
-  AutoCorrect: false
-  Max: 80
-  # To make it possible to copy or click on URIs in the code, we allow lines
-  # containing a URI to be longer than Max.
-  AllowHeredoc: true
-  AllowURI: true
-  URISchemes:
-    - http
-    - https
-  # The IgnoreCopDirectives option causes the LineLength rule to ignore cop
-  # directives like '# rubocop: enable ...' when calculating a line's length.
-  IgnoreCopDirectives: true
-  # The IgnoredPatterns option is a list of !ruby/regexp and/or string
-  # elements. Strings will be converted to Regexp objects. A line that matches
-  # any regular expression listed in this option will be ignored by LineLength.
-  IgnoredPatterns: []
 
 Metrics/MethodLength:
   Description: 'Avoid methods longer than 10 lines of code.'
