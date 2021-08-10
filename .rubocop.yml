@@ -1,25 +1,10 @@
-inherit_from: config/default.yml
+inherit_from: config/rubocop.yml
+
+AllCops:
+  NewCops: enable
 
 require:
   - rubocop-performance
   - rubocop-rails
+  - rubocop-rake
   - rubocop-thread_safety
-
-Style/Documentation:
-  Enabled: false
-
-Layout/MultilineMethodCallIndentation:
-  EnforcedStyle: indented
-
-Layout/HashAlignment:
-  EnforcedColonStyle: key
-  EnforcedLastArgumentHashStyle: ignore_implicit
-
-Layout/ParameterAlignment:
-  EnforcedStyle: with_fixed_indentation
-
-Layout/FirstArrayElementIndentation:
-  EnforcedStyle: consistent
-
-Layout/FirstHashElementIndentation:
-  EnforcedStyle: consistent
