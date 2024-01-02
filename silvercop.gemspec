@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.files = Dir['README.md', 'LICENSE', '.rubocop.yml', 'config/*.yml', 'lib/**/*.rb']
 
-  spec.add_dependency 'rubocop', '1.48.0'
+  spec.add_dependency 'rubocop', '1.59.0'
   spec.add_dependency 'rubocop-performance', '1.20.1'
   spec.add_dependency 'rubocop-rails', '2.23.1'
   spec.add_dependency 'rubocop-rake', '0.6.0'
