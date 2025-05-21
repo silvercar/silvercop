@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name = 'silvercop'
-  spec.version = '1.3.0'
+  spec.version = '1.4.0'
   spec.summary = 'Silvercar RuboCop'
   spec.description = 'Code style checking for Silvercar Ruby repositories.'
 
@@ -16,6 +16,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'rubocop-rails', '>= 2.23.1'
   spec.add_dependency 'rubocop-rake', '>= 0.6.0'
   spec.add_dependency 'rubocop-rspec', '>= 2.25.0'
+  spec.add_dependency 'rubocop-rspec_rails'
   spec.add_dependency 'rubocop-thread_safety', '>= 0.5.1'
 
   spec.add_development_dependency 'rake', '~> 10.0'

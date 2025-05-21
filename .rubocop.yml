@@ -3,7 +3,7 @@ inherit_from: config/rubocop.yml
 AllCops:
   NewCops: enable
 
-require:
+plugins:
   - rubocop-performance
   - rubocop-rails
   - rubocop-rake
